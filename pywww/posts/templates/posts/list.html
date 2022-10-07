@@ -1,0 +1,41 @@
+{% extends "main/base.html"%}
+{% block title %}Lista postów{% endblock %}
+{% block content %}
+<div class="container text-left">
+    <div class="row">
+        <form>
+            <input type="text" id="q" name="q">
+            <input type="submit" value="search">
+        </form>
+    </div>
+
+
+
+    {% for post in posts_list %}
+
+    <div class="row">
+        <div class="col-6">
+            {% if post.sponsored %}
+            <a href="{% url 'posts:details' post.id %}"><mark>{{ post.title}}</mark></a>
+
+            {% else %}
+             <a href="{% url 'posts:details' post.id %}">{{ post.title}}</a>
+              {% endif %}
+        </div>
+        <div class="col">
+            {{post.created | date:"d-m-Y H:i"}}
+        </div>
+        <div class="col">
+            {% if post.sponsored %}
+            <span class="badge text-bg-primary"><a href="{% url 'posts:list' %}" class="link-light">SPONSOROWANY</a></span>
+            {% else %}
+            <button type="button" class="btn btn-secondary"><a href="{% url 'posts:toggle_sponsored' %}" class="link-light">sponsoruj</a></button>
+            <a href="#" class="btn btn-primary" role="button" data-bs-toggle="button">Toggle link</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+
+    {% endfor %}
+
+    {% endblock %}

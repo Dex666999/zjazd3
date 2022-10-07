@@ -1,0 +1,57 @@
+[
+{
+  "model": "posts.post",
+  "pk": 3,
+  "fields": {
+    "title": "Trzeci post zmodyfikowany",
+    "content": "asdasdasdas asd as d asd das",
+    "published": true,
+    "created": "2022-09-29T07:38:27.519Z",
+    "modified": "2022-09-29T08:31:39.048Z"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "title": "Post stworzony w konsoli",
+    "content": "asdasdas das dasd asd asd asd asd",
+    "published": false,
+    "created": "2022-09-29T08:13:09.438Z",
+    "modified": "2022-09-29T08:13:09.438Z"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "title": "Drugi post konsolowy",
+    "content": "asdasd asd asd asasd",
+    "published": false,
+    "created": "2022-09-29T08:13:55.730Z",
+    "modified": "2022-09-29T08:13:55.730Z"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 6,
+  "fields": {
+    "title": "Post stworzony w konsoli 3",
+    "content": "linia1\nlinia2\nlinia3\n",
+    "published": false,
+    "created": "2022-09-29T08:16:41.207Z",
+    "modified": "2022-09-29T08:22:37.687Z"
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 7,
+  "fields": {
+    "title": "Czwarty post konsolowy",
+    "content": "asdasd asdasdasd\n asd asasd",
+    "published": true,
+    "created": "2022-09-29T08:24:42.252Z",
+    "modified": "2022-09-29T08:45:29.915Z"
+  }
+}
+]

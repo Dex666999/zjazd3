@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% block title %}Szczegóły postu{% endblock %}
+{% block content %}
+    <div class="card" style="width: 40rem;">
+         {% if post.image %}
+                <img src="{{post.image.url}}" class="card-img-top" alt="...">
+            {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">Tytuł posta: {{ post.title }}</h5>
+            <h6 class="card-title">Autor posta: {{ post.author }}</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+
+            {% if post.is_content_long %}
+                <li class="list-group-item">Shortened: {{ post.short_content }}...</li>
+            {% else %}
+                <li class="list-group-item">{{ post.content }}</li>
+            {% endif %}
+            <li class="list-group-item">{{ post.created }}</li>
+            <li class="list-group-item">{{ post.modified }}</li>
+            <li class="list-group-item">
+                {% for tag in post.tags.all %}
+                <span class="badge rounded-pill text-bg-secondary">{{ tag.slug }}</span>
+
+                {% endfor %}
+            </li>
+            {% if post.image %}
+                <li class="list-group-item">Pobierz <a href="{{ post.image.url }}">przykład</a></li>
+            {% endif %}
+
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Powrót do listy postów</a>
+        </div>
+    </div>
+
+
+{% endblock %}

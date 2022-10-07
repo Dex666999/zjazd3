@@ -1,0 +1,88 @@
+{% extends "main/base.html" %}
+{% block title %}Dodawanie postu{% endblock %}
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Post title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Wpisz tytuł postu">
+    </div>
+
+    <select class="form-select" aria-label="Author" id="author" name="author">
+        {% for author in authors %}
+  <option value="{{ author.id }}">{{ author }}</option>
+ {% endfor %}
+</select>
+
+    <select class="form-select" multiple aria-label="multiple select example" name="select">
+        {% for tag in tags %}
+                    <option value="{{ tag.id }}">{{ tag.name }}</option>
+                {% endfor %}
+</select>
+    <div class="mb-3">
+        <label for="content" class="form-label">Post text</label>
+        <textarea class="form-control" id="content" rows="3" name="content" placeholder="Wpisz tekst postu"></textarea>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="on" id="published" name="published">
+        <label class="form-check-label" for="published">
+            Is post published?
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+
+</form>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="title" class="form-label">Post title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Wpisz tytuł postu">
+    </div>
+
+    <select class="form-select" aria-label="Author" id="author" name="author">
+        {% for author in authors %}
+  <option value="{{ author.id }}">{{ author }}</option>
+ {% endfor %}
+</select>
+
+    <select class="form-select" multiple aria-label="multiple select example" name="select">
+        {% for tag in tags %}
+                    <option value="{{ tag.id }}">{{ tag.name }}</option>
+                {% endfor %}
+</select>
+    <div class="mb-3">
+        <label for="content" class="form-label">Post text</label>
+        <textarea class="form-control" id="content" rows="3" name="content" placeholder="Wpisz tekst postu"></textarea>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="on" id="published" name="published">
+        <label class="form-check-label" for="published">
+            Is post published?
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
